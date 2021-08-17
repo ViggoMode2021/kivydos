@@ -1,0 +1,132 @@
+#:import utils kivy.utils
+
+WindowManager:
+    TitleWindow:
+    FirstWindow:
+    SecondWindow:
+
+<TitleWindow>:
+    name: "title"
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        padding: 50
+        spacing: 20
+
+        Image:
+            id: main_image
+            source: r"Title.png"
+
+        Button:
+            id: start_button
+            text: "Start/Empezar"
+            font_size: 15
+            on_press: self.background_color = (1.0, 3.0, 2.0, 1.0)
+
+            on_release:
+                app.root.current = "first"
+
+
+<FirstWindow>:
+    name: "first"
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        padding: 50
+        spacing: 20
+
+        Image:
+            id: main_image_two
+            source: r"globe.png"
+
+        Button:
+            id: incorrect_button
+            text: "15 countries"
+            font_size: 15
+            on_press: self.background_color = (1.0, 0.0, 0.0, 1.0)
+
+            on_release:
+                app.root.current = "first"
+
+
+        Button:
+            id: correct_button
+            text: "20 countries"
+            font_size: 15
+            on_press: self.background_color = (50,50,50)
+            on_release:
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+
+
+        Label:
+            text: "How many countries have Spanish as an official language?"
+            font_size: 32
+            background_color: (0, 1, 1, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            color: (1,1,1,1)
+            bold: True
+            italic: True
+
+<SecondWindow>:
+    name: "second"
+    BoxLayout:
+        size: root.width, root.height
+        orientation: "vertical"
+        padding: 50
+        spacing: 20
+
+        Image:
+            id: main_image_three
+            source: r"SpeakSpanish.png"
+
+
+        Button:
+            id: incorrect_button_two
+            text: "220 million people"
+            font_size: 15
+            on_press: self.background_color = (1.0, 0.0, 0.0, 1.0)
+
+            on_release:
+                app.root.current = "third"
+
+        Button:
+            id: correct_button_two
+            text: "572 million people"
+            font_size: 15
+            on_press: self.background_color = (50,50,50)
+            on_release:
+                app.root.current = "third"
+                root.manager.transition.direction = "left"
+
+        Label:
+            text: "How many people speak Spanish in the world?"
+            font_size: 32
+            background_color: (0, 1, 1, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            color: (1,1,1,1)
+            bold: True
+            italic: True
+
+        Button:
+            text: "Go back"
+            font_size: 32
+            on_release:
+                app.root.current = "first"
+                root.manager.transition.direction = "right"
+
+
+
+
