@@ -15,16 +15,25 @@ from kivy.uix.boxlayout import BoxLayout
 
 # define different screens
 
+
+
 class TitleWindow(Screen):
     pass
 
 class FirstWindow(Screen):
     pass
 
-
 class SecondWindow(Screen):
     pass
 
+class ThirdWindow(Screen):
+    pass
+
+class FourthWindow(Screen):
+    pass
+
+class FifthWindow(Screen):
+    pass
 
 class WindowManager(ScreenManager):
     pass
@@ -33,22 +42,17 @@ class WindowManager(ScreenManager):
 kv = Builder.load_file('screenmanager_dos.kv')
 
 
-class MyLayout(BoxLayout):
-    pass
-'''
-class SoundPlayer(BoxLayout):
-    def play_sound(instance,self):
-        sound = SoundLoader.load('correcto.mp3')
-        if sound:
-            sound.volume = 0.1
-            sound.play()
-'''
-class AwesomeApp(App):
+class VigApp(App):
     def build(self):
         Window.clearcolor = (1, 1, 1, 1)
         return kv
-        return SoundPlayer()
 
+    def btn_pressed(self):
+        sound = SoundLoader.load('correcto.mp3')
+        sound.play()
 
 if __name__ == '__main__':
-    AwesomeApp().run()
+    VigApp().run()
+
+
+
