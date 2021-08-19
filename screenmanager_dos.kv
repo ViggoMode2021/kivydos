@@ -91,6 +91,15 @@ WindowManager:
             color: (3,3,3,1)
             bold: True
             italic: True
+            
+
+        Button:
+            text: "Go back"
+            font_size: 32
+            on_release:
+                app.root.current = "first"
+                root.manager.transition.direction = "right"
+
 
 <SecondWindow>:
     name: "second"
@@ -209,7 +218,7 @@ WindowManager:
 
         Label:
             id: score_label_two
-            text: "Tienes dos puntos"
+            text: "Tienes dos puntos."
             font_size: 50
             background_color: (0, 1, 1, 1)
             canvas.before:
@@ -221,6 +230,15 @@ WindowManager:
             color: (1,1,1,1)
             bold: True
             italic: True
+
+
+        Button:
+            text: "Go back"
+            font_size: 32
+            on_release:
+                app.root.current = "first"
+                root.manager.transition.direction = "right"
+
 
 <FourthWindow>:
 
@@ -270,7 +288,7 @@ WindowManager:
 
         Label:
             id: score_label_three
-            text: "Tienes tres puntos"
+            text: "Tienes tres puntos."
             font_size: 50
             background_color: (0, 1, 1, 1)
             canvas.before:
@@ -283,6 +301,15 @@ WindowManager:
             bold: True
             italic: True
 
+
+        Button:
+            text: "Go back"
+            font_size: 32
+            on_release:
+                app.root.current = "first"
+                root.manager.transition.direction = "right"
+
+
 <FifthWindow>:
     name: "fifth"
     BoxLayout:
@@ -293,7 +320,7 @@ WindowManager:
 
         Image:
             id: main_image_five
-            source: r"Spain.png"
+            source: r"Puerto Rico.png"
 
 
         Button:
@@ -330,7 +357,7 @@ WindowManager:
 
         Label:
             id: score_label_three
-            text: "Tienes cuatro puntos"
+            text: "Tienes cuatro puntos."
             font_size: 50
             background_color: (0, 1, 1, 1)
             canvas.before:
