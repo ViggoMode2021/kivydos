@@ -4,6 +4,9 @@ WindowManager:
     TitleWindow:
     FirstWindow:
     SecondWindow:
+    ThirdWindow:
+    FourthWindow:
+    FifthWindow:
 
 <TitleWindow>:
     name: "title"
@@ -21,12 +24,11 @@ WindowManager:
         Button:
             id: start_button
             text: "Start/Empezar"
-            font_size: 15
+            font_size: 30
             on_press: self.background_color = (1.0, 3.0, 2.0, 1.0)
 
             on_release:
                 app.root.current = "first"
-
 
 <FirstWindow>:
     name: "first"
@@ -44,7 +46,7 @@ WindowManager:
         Button:
             id: incorrect_button
             text: "15 countries"
-            font_size: 15
+            font_size: 30
             on_press: self.background_color = (1.0, 0.0, 0.0, 1.0)
 
             on_release:
@@ -54,7 +56,7 @@ WindowManager:
         Button:
             id: correct_button
             text: "20 countries"
-            font_size: 15
+            font_size: 30
             on_press: self.background_color = (50,50,50)
             on_release:
                 app.root.current = "second"
@@ -75,6 +77,21 @@ WindowManager:
             bold: True
             italic: True
 
+        Label:
+            id: score_label
+            text: "Tienes cero puntos."
+            font_size: 35
+            background_color: (0, 1, 1, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            color: (3,3,3,1)
+            bold: True
+            italic: True
+
 <SecondWindow>:
     name: "second"
     BoxLayout:
@@ -91,16 +108,16 @@ WindowManager:
         Button:
             id: incorrect_button_two
             text: "220 million people"
-            font_size: 15
+            font_size: 30
             on_press: self.background_color = (1.0, 0.0, 0.0, 1.0)
 
             on_release:
-                app.root.current = "third"
+                app.root.current = "second"
 
         Button:
             id: correct_button_two
-            text: "572 million people"
-            font_size: 15
+            text: "580 million people"
+            font_size: 30
             on_press: self.background_color = (50,50,50)
             on_release:
                 app.root.current = "third"
@@ -120,12 +137,220 @@ WindowManager:
             bold: True
             italic: True
 
+        Label:
+            id: score_label_two
+            text: "Tienes un punto."
+            font_size: 35
+            background_color: (0, 1, 1, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            color: (1,1,1,1)
+            bold: True
+            italic: True
+
+
         Button:
             text: "Go back"
             font_size: 32
             on_release:
                 app.root.current = "first"
                 root.manager.transition.direction = "right"
+
+
+<ThirdWindow>:
+
+    name: "third"
+    BoxLayout:
+        size: root.width, root.height
+        orientation: "vertical"
+        padding: 50
+        spacing: 20
+
+        Image:
+            id: main_image_four
+            source: r"world.png"
+
+
+        Button:
+            id: incorrect_button_three
+            text: "Spain"
+            font_size: 35
+            on_press: self.background_color = (1.0, 0.0, 0.0, 1.0)
+
+            on_release:
+                app.root.current = "third"
+
+        Button:
+            id: correct_button_three
+            text: "México"
+            font_size: 35
+            on_press: self.background_color = (50,50,50)
+            on_release:
+                app.root.current = "fourth"
+                root.manager.transition.direction = "left"
+
+        Label:
+            text: "Which Spanish speaking country has the largest population?"
+            font_size: 32
+            background_color: (0, 1, 1, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            color: (1,1,1,1)
+            bold: True
+            italic: True
+
+        Label:
+            id: score_label_two
+            text: "Tienes dos puntos"
+            font_size: 50
+            background_color: (0, 1, 1, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            color: (1,1,1,1)
+            bold: True
+            italic: True
+
+<FourthWindow>:
+
+    name: "fourth"
+    BoxLayout:
+        size: root.width, root.height
+        orientation: "vertical"
+        padding: 50
+        spacing: 20
+
+        Image:
+            id: main_image_five
+            source: r"Spain.png"
+
+
+        Button:
+            id: incorrect_button_four
+            text: "Costa Rica"
+            font_size: 35
+            on_press: self.background_color = (1.0, 0.0, 0.0, 1.0)
+
+            on_release:
+                app.root.current = "four"
+
+        Button:
+            id: correct_button_four
+            text: "Spain"
+            font_size: 35
+            on_press: self.background_color = (50,50,50)
+            on_release:
+                app.root.current = "fifth"
+                root.manager.transition.direction = "left"
+
+        Label:
+            text: "Which Spanish speaking country's flag is this?"
+            font_size: 32
+            background_color: (0, 1, 1, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            color: (1,1,1,1)
+            bold: True
+            italic: True
+
+        Label:
+            id: score_label_three
+            text: "Tienes tres puntos"
+            font_size: 50
+            background_color: (0, 1, 1, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            color: (1,1,1,1)
+            bold: True
+            italic: True
+
+<FifthWindow>:
+    name: "fifth"
+    BoxLayout:
+        size: root.width, root.height
+        orientation: "vertical"
+        padding: 50
+        spacing: 20
+
+        Image:
+            id: main_image_five
+            source: r"Spain.png"
+
+
+        Button:
+            id: incorrect_button_four
+            text: "Guatemala"
+            font_size: 35
+            on_press: self.background_color = (1.0, 0.0, 0.0, 1.0)
+
+            on_release:
+                app.root.current = "four"
+
+        Button:
+            id: correct_button_five
+            text: "Puerto Rico"
+            font_size: 35
+            on_press: self.background_color = (50,50,50)
+            on_release:
+                app.root.current = "fifth"
+                root.manager.transition.direction = "left"
+
+        Label:
+            text: "Which is a territory of the United States??"
+            font_size: 32
+            background_color: (0, 1, 1, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            color: (1,1,1,1)
+            bold: True
+            italic: True
+
+        Label:
+            id: score_label_three
+            text: "Tienes cuatro puntos"
+            font_size: 50
+            background_color: (0, 1, 1, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            color: (1,1,1,1)
+            bold: True
+            italic: True
+
+
+        Button:
+            text: "Go back"
+            font_size: 32
+            on_release:
+                app.root.current = "first"
+                root.manager.transition.direction = "right"
+
 
 
 
